@@ -5,9 +5,9 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=sakilhasansaikat&label=Profile%20views&color=0e75b6&style=flat" alt="sakilhasansaikat" /> </p>
 
-<p align="left"> <a href="https://twitter.com/sakilhasan03" target="blank"><img src="https://img.shields.io/twitter/follow/sakilhasan03?logo=twitter&style=for-the-badge" alt="sakilhasan03" /></a> </p>
+<p align="left"> <a href="https://twitter.com/0xSaikat" target="blank"><img src="https://img.shields.io/twitter/follow/sakilhasan03?logo=twitter&style=for-the-badge" alt="sakilhasan03" /></a> </p>
 
-- 🔭 I’m currently working on [Eco-Link.dao (Web3)](http://eco-link.dao)
+- 🔭 I’m currently working on [Hackbit.dao (Web3)](http://hackbit.dao)
 
 - 🌱 I’m currently learning **WEB3, Blockchain, Ethical hacking.**
 
@@ -15,13 +15,13 @@
 
 - 🤝 I’m looking for help with [Eco-Link.dao](http://eco-link.dao)
 
-- 👨‍💻 All of my projects are available at [https://github.com/sakilhasansaikat](https://github.com/sakilhasansaikat)
+- 👨‍💻 All of my projects are available at [https://github.com/0xSaikat](https://github.com/0xSaikat)
 
-- 📝 I regularly write articles on [http://alienLab.com](http://alienLab.com)
+- 📝 I regularly write articles on [http://alienLab.dao](http://alienLab.dao)
 
 - 💬 Ask me about **WEB3, Blockchain, Token, Hacking**
 
-- 📫 How to reach me **sakilhasansaikat@gmail.com**
+- 📫 How to reach me **saikat@swag.com.bd**
 
 - ⚡ Fun fact **I am still single!**
 

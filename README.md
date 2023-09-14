@@ -5,7 +5,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=sakilhasansaikat&label=Profile%20views&color=0e75b6&style=flat" alt="sakilhasansaikat" /> </p>
 
-<p align="left"> <a href="https://twitter.com/0xSaikat" target="blank"><img src="https://img.shields.io/twitter/follow/sakilhasan03?logo=twitter&style=for-the-badge" alt="sakilhasan03" /></a> </p>
+<p align="left"> <a href="https://twitter.com/0xSaikat" target="blank"><img src="https://img.shields.io/twitter/follow/sakilhasan03?logo=twitter&style=for-the-badge" alt="0xSaikat" /></a> </p>
 
 - 🔭 I’m currently working on [Hackbit.dao (Web3)](http://hackbit.dao)
 

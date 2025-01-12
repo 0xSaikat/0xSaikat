@@ -16,7 +16,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
 
 ###
 
-<img align="right" height="180" src="hacking.gif"  />
+<img align="right" height="180" src="cyber.gif"  />
 
 ###
 

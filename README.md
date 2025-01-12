@@ -1,6 +1,6 @@
 ![logo](https://github.com/0xSaikat/0xSaikat/blob/main/github_cover.png)
 
-<h2 align="left" style="font-family: serif;">Hi 👋! I am Sakil Hasan Saikat</h2>
+<h2 align="left" style="font-family: serif;">Hi! I am Sakil Hasan Saikat</h2>
 
 <p align="center">
   <span style="font-size: 1.5em; color: #f5c518;">

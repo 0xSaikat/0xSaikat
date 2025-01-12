@@ -1,6 +1,14 @@
 ![logo](https://github.com/0xSaikat/0xSaikat/blob/main/github_cover.png)
 
-<h2 align="left" style="font-family: 'serif';">Hi 👋! I am Sakil Hasan Saikat</h2>
+<h2 align="left" style="font-family: serif;">Hi 👋! I am Sakil Hasan Saikat</h2>
+
+<p align="center">
+  <span style="font-size: 1.5em; color: #f5c518;">
+    <marquee behavior="scroll" direction="left">🔓 Penetration Tester | 🛡 Ethical Hacker | 💻 Cybersecurity Professional | 🎯 Python Automation Expert</marquee>
+  </span>
+</p>
+
+</br>
 
 <p style="font-family: 'monospace';">
 A passionate cybersecurity professional specializing in offensive security, web penetration testing, and Python automation. With over two years of experience, Sakil has made significant contributions by ethically hacking and securing organizations like Apple, Microsoft, and NASA.

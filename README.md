@@ -1,4 +1,4 @@
-![logo](https://github.com/0xSaikat/0xSaikat/blob/main/cyber.gif)
+![logo](https://github.com/0xSaikat/0xSaikat/blob/main/github_cover.png)
 
 <h2 align="left" style="font-family: 'serif';">Hi 👋! I am Sakil Hasan Saikat</h2>
 
@@ -16,7 +16,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
 
 ###
 
-<img align="right" height="180" src="hacking.gif"  />
+<img align="right" height="180" src="cyber.gif"  />
 
 ###
 

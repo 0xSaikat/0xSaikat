@@ -150,6 +150,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
 ###
 
 <div align="center">
+  <h4 align="center" style="font-family: serif;">Total Profile Visitors</h4>
   <img src="https://profile-counter.glitch.me/0xSaikat/count.svg?"  />
 </div>
 

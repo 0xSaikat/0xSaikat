@@ -151,7 +151,22 @@ A passionate cybersecurity professional specializing in offensive security, web 
 
 <br clear="both">
 
+<div align="center">
 <img src="https://raw.githubusercontent.com/0xSaikat/0xSaikat/output/snake.svg" alt="Snake animation" />
+<br clear="both">
+  
+<div align="right">
+  <a href="https://www.linkedin.com/in/0xsaikat">
+    <img src="https://avatars.githubusercontent.com/u/72136146?s=400&u=3eaa132c43ebe24c797e74687c7a54793bd25a81&v=4" align="right" width="50" height="50" alt="image" style="margin-bottom: 20px; margin-top: 20px; border-radius: 50%;"/>
+  </a>
+  <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
+    <!-- RANDOM_QUOTE_PLACEHOLDER -->
+  </p>
+</div>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=0xSaikat&bg_color=0D1117&color=00FF00&line=00FF00&point=00FF00&area_color=00FF00&area=true&hide_border=true&custom_title=%20" width="850" height="300" alt="Contribution Constellation"/>
+
+</div>
 
 ###
 

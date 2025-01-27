@@ -1,7 +1,7 @@
 name: Update Random Cybersecurity Quote
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight
+    - cron: '0 0 * * *' # Runs every day at midnight (UTC time)
   workflow_dispatch:
 
 jobs:
@@ -35,7 +35,8 @@ jobs:
 
       - name: Update README with random quote
         run: |
-          sed -i "s|<!-- RANDOM_QUOTE_PLACEHOLDER -->|\"$RANDOM_QUOTE\"|g" README.md
+          # Replace the entire <p> tag with the new quote and styling
+          sed -i "s|<p id=\"random-quote\" style=\".*\">.*</p>|<p id=\"random-quote\" style=\"font-size: 18px; font-weight: bold; color: #00FF00; font-family: 'Courier New', monospace; margin-bottom: 20px;\">\"$RANDOM_QUOTE\"</p>|g" README.md
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add README.md

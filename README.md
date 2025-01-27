@@ -160,7 +160,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
     <img src="https://avatars.githubusercontent.com/u/72136146?s=400&u=3eaa132c43ebe24c797e74687c7a54793bd25a81&v=4" align="right" width="50" height="50" alt="image" style="margin-bottom: 20px; margin-top: 20px; border-radius: 50%;"/>
   </a>
   <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 20px;">
-    <!-- RANDOM_QUOTE_PLACEHOLDER -->
+    "The only secure system is one that is powered off, cast in a block of concrete, and sealed in a lead-lined room with armed guards."
   </p>
 </div>
 

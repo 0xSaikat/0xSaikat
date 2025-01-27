@@ -35,8 +35,13 @@ jobs:
 
       - name: Update README with random quote
         run: |
-          # Replace the entire <p> tag with the new quote and styling
-          sed -i "s|<p id=\"random-quote\" style=\".*\">.*</p>|<p id=\"random-quote\" style=\"font-size: 18px; font-weight: bold; color: #00FF00; font-family: 'Courier New', monospace; margin-bottom: 20px;\">\"$RANDOM_QUOTE\"</p>|g" README.md
+          # Escape special characters in the quote
+          ESCAPED_QUOTE=$(echo "$RANDOM_QUOTE" | sed 's/["]/\\&/g')
+          
+          # Replace the placeholder with the new quote and styling
+          sed -i "s|<p id=\"random-quote\" style=\".*\">.*</p>|<p id=\"random-quote\" style=\"font-size: 18px; font-weight: bold; color: #00FF00; font-family: 'Courier New', monospace; margin-bottom: 20px;\">\"$ESCAPED_QUOTE\"</p>|g" README.md
+          
+          # Configure Git and push changes
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add README.md

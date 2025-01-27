@@ -162,10 +162,11 @@ A passionate cybersecurity professional specializing in offensive security, web 
   <a href="https://www.linkedin.com/in/0xsaikat">
     <img src="https://avatars.githubusercontent.com/u/72136146?s=400&u=3eaa132c43ebe24c797e74687c7a54793bd25a81&v=4" align="right" width="50" height="50" alt="image" style="margin-bottom: 20px; margin-top: 20px; border-radius: 50%;"/>
   </a>
-  <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #00FF00 !important; font-family: 'Courier New', monospace; margin-bottom: 20px; text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);">
-    Hacking is not a crime, it's a skill. How you use it determines its morality.
+  <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #00FF00; font-family: 'Courier New', monospace; margin-bottom: 20px;">
+    <!-- RANDOM_QUOTE_PLACEHOLDER -->
   </p>
 </div>
+
 
 <br>
 <br>

@@ -1,6 +1,12 @@
 ![logo](https://github.com/0xSaikat/0xSaikat/blob/main/github_cover.png)
 
-<h2 align="left" style="font-family: serif;">Hi! I am Sakil Hasan Saikat</h2>
+<p align="center">
+  <a href="https://github.com/0xSaikat">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=39FF14&center=true&vCenter=true&width=435&lines=Hi%2C+I+am+Sakil+Hasan+Saikat;Penetration+Tester;Red+Teamer;Ethical+Hacker;Malware+Analyst;Vulnerability+Researcher;Exploit+Developer;Reverse+Engineer;Red+Team+Operator;Bug+Bounty+Hunter;Web3+Dev+%26+Audit;Solidity+•+Bash+•+Python+Dev" alt="Typing SVG" align="center"/>
+  </a>
+</p>
+
+
 
 <p align="center">
   <span style="font-size: 1.5em; color: #f5c518;">

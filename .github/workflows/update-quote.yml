@@ -1,3 +1,4 @@
+
 name: Update Random Cybersecurity Quote
 on:
   schedule:
@@ -41,8 +42,8 @@ jobs:
           # Get the quote from the previous step
           QUOTE="${{ steps.fetch-quote.outputs.quote }}"
           
-          # Escape special characters in the quote and add quotation marks
-          ESCAPED_QUOTE=$(echo "\"$QUOTE\"" | sed 's/[\"]/\\&/g')
+          # Escape special characters in the quote
+          ESCAPED_QUOTE=$(echo "$QUOTE" | sed 's/[\"]/\\&/g')
           
           # Replace the placeholder with the new quote
           sed -i 's|<!-- RANDOM_QUOTE_PLACEHOLDER -->|'"$ESCAPED_QUOTE"'|g' README.md

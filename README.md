@@ -156,7 +156,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
   <br clear="both">
   <br>
   <br>
- 
+  <br>
   
 <div align="right">
   <a href="https://www.linkedin.com/in/0xsaikat">

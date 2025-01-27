@@ -1,0 +1,43 @@
+name: Update Random Cybersecurity Quote
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch or generate random cybersecurity quote
+        id: fetch-quote
+        run: |
+          # Predefined list of cybersecurity/hacking quotes
+          QUOTES=(
+            "The only secure system is one that is powered off, cast in a block of concrete, and sealed in a lead-lined room with armed guards."
+            "Security is always excessive until it's not enough."
+            "Hacking is not a crime, it's a skill. How you use it determines its morality."
+            "The quieter you become, the more you are able to hear."
+            "Trust no one, not even yourself."
+            "Passwords are like underwear: change them often, don't share them, and make them strong."
+            "The best defense is a good offense."
+            "Cybersecurity is a race against time and adversaries."
+            "In cybersecurity, paranoia is a virtue."
+            "Hackers don't destroy, they reveal."
+          )
+
+          # Select a random quote
+          RANDOM_INDEX=$((RANDOM % ${#QUOTES[@]}))
+          RANDOM_QUOTE="${QUOTES[$RANDOM_INDEX]}"
+          echo "RANDOM_QUOTE=$RANDOM_QUOTE" >> $GITHUB_ENV
+
+      - name: Update README with random quote
+        run: |
+          sed -i "s|<!-- RANDOM_QUOTE_PLACEHOLDER -->|\"$RANDOM_QUOTE\"|g" README.md
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update random cybersecurity quote"
+          git push

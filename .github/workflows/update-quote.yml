@@ -1,7 +1,7 @@
 name: Update Random Cybersecurity Quote
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight (UTC time)
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -14,10 +14,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch or generate random cybersecurity quote
+      - name: Fetch random quote
         id: fetch-quote
         run: |
-          # Predefined list of cybersecurity/hacking quotes
           QUOTES=(
             "The only secure system is one that is powered off, cast in a block of concrete, and sealed in a lead-lined room with armed guards."
             "Security is always excessive until it's not enough."
@@ -30,26 +29,22 @@ jobs:
             "In cybersecurity, paranoia is a virtue."
             "Hackers don't destroy, they reveal."
           )
-
-          # Select a random quote
           RANDOM_INDEX=$((RANDOM % ${#QUOTES[@]}))
-          RANDOM_QUOTE="${QUOTES[$RANDOM_INDEX]}"
-          echo "quote=$RANDOM_QUOTE" >> $GITHUB_OUTPUT
+          echo "quote=${QUOTES[$RANDOM_INDEX]}" >> $GITHUB_OUTPUT
 
-      - name: Update README with random quote
+      - name: Update README
         run: |
-          # Get the quote from the previous step
           QUOTE="${{ steps.fetch-quote.outputs.quote }}"
           
-          # Escape special characters in the quote
-          ESCAPED_QUOTE=$(echo "$QUOTE" | sed 's/[\"]/\\&/g')
+          # Escape special characters
+          ESCAPED_QUOTE=$(echo "$QUOTE" | sed -e 's/["'"'"']/\\&/g' -e 's/$/\\n/')
           
-          # Use perl to replace the content between the <p> tags
-          perl -i -pe 's|(<p id="random-quote"[^>]*>).*?(</p>)|\1'"$ESCAPED_QUOTE"'\2|' README.md
+          # Perl command to update the quote section
+          perl -i -pe 'BEGIN{undef $/;} s|(<p id="random-quote" style="[^"]*">\s*)(.*?)(\s*</p>)|$1'"$ESCAPED_QUOTE"'$3|sg' README.md
           
-          # Configure Git and push changes
+          # Git operations
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Update random cybersecurity quote"
+          git commit -m "🔒 Updated cybersecurity quote" || echo "No changes to commit"
           git push

@@ -1,50 +1,59 @@
-name: Update Random Cybersecurity Quote
+name: Daily Cybersecurity Quote Update
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'  # Midnight UTC
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-readme:
+  quote-updater:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Fetch random quote
-        id: fetch-quote
+      - name: Load Quotes
+        id: quotes
         run: |
-          QUOTES=(
-            "The only secure system is one that is powered off, cast in a block of concrete, and sealed in a lead-lined room with armed guards."
-            "Security is always excessive until it's not enough."
-            "Hacking is not a crime, it's a skill. How you use it determines its morality."
-            "The quieter you become, the more you are able to hear."
-            "Trust no one, not even yourself."
-            "Passwords are like underwear: change them often, don't share them, and make them strong."
-            "The best defense is a good offense."
-            "Cybersecurity is a race against time and adversaries."
-            "In cybersecurity, paranoia is a virtue."
-            "Hackers don't destroy, they reveal."
+          CYBER_QUOTES=(
+            "🔓 The only secure system is one that's powered off, encased in concrete, and guarded."
+            "🛡️ Security: Expensive until you need it desperately."
+            "💻 Hacking: The art of finding truth in systems."
+            "🎯 If you think technology can solve your security problems, you don't understand technology and you don't understand problems."
+            "🔑 Passwords are like jokes: the longer and more obscure, the better."
+            "🌐 In cyberspace, the First Amendment is a local ordinance."
+            "♂️ A good hacker is always learning; a great hacker is always teaching."
+            "🚨 There are two types of companies: those that have been hacked, and those that don't know it yet."
+            "💡 Innovation distinguishes between a leader and a follower."
+            "⚡ Cybersecurity is a journey, not a destination."
           )
-          RANDOM_INDEX=$((RANDOM % ${#QUOTES[@]}))
-          echo "quote=${QUOTES[$RANDOM_INDEX]}" >> $GITHUB_OUTPUT
+          SELECTED_QUOTE=${CYBER_QUOTES[$RANDOM % ${#CYBER_QUOTES[@]}]}
+          echo "quote=${SELECTED_QUOTE}" >> $GITHUB_OUTPUT
 
-      - name: Update README
+      - name: Inject Quote
         run: |
-          QUOTE="${{ steps.fetch-quote.outputs.quote }}"
+          # Format with proper escaping and line breaks
+          QUOTE_CONTENT=$(echo '${{ steps.quotes.outputs.quote }}' | sed -e 's/"/\\"/g' -e 's/'\''/\\'\''/g')
           
-          # Escape special characters
-          ESCAPED_QUOTE=$(echo "$QUOTE" | sed -e 's/["'"'"']/\\&/g' -e 's/$/\\n/')
-          
-          # Perl command to update the quote section
-          perl -i -pe 'BEGIN{undef $/;} s|(<p id="random-quote" style="[^"]*">\s*)(.*?)(\s*</p>)|$1'"$ESCAPED_QUOTE"'$3|sg' README.md
-          
-          # Git operations
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # Precision replacement using awk
+          awk -i inplace -v quote="$QUOTE_CONTENT" '
+            /<p id="random-quote"/ { 
+              print $0 
+              print "    " quote
+              flag=1
+              next
+            }
+            flag && /<\/p>/ {
+              flag=0
+            }
+            !flag' README.md
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "CyberQuote Bot"
+          git config --global user.email "cyber-quote-bot@users.noreply.github.com"
           git add README.md
-          git commit -m "🔒 Updated cybersecurity quote" || echo "No changes to commit"
+          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Daily Wisdom: ${{ steps.quotes.outputs.quote }}" 
           git push

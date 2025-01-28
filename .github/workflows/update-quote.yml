@@ -1,7 +1,7 @@
 name: Daily Cybersecurity Quote Update
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '0 0 * * *'  # Midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -11,40 +11,49 @@ jobs:
   quote-updater:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          ref: main  # Explicitly specify your branch name
 
-      - name: Generate Random Quote
-        id: generate-quote
+      - name: Load Quotes
+        id: quotes
         run: |
-          QUOTES=(
+          CYBER_QUOTES=(
             "🔓 The only secure system is one that's powered off, encased in concrete, and guarded."
             "🛡️ Security: Expensive until you need it desperately."
             "💻 Hacking: The art of finding truth in systems."
-            "🎯 If you think technology can solve security problems, you don't understand either."
-            "🔑 Passwords are like jokes: longer and more obscure = better."
+            "🎯 If you think technology can solve your security problems, you don't understand technology and you don't understand problems."
+            "🔑 Passwords are like jokes: the longer and more obscure, the better."
+            "🌐 In cyberspace, the First Amendment is a local ordinance."
+            "♂️ A good hacker is always learning; a great hacker is always teaching."
+            "🚨 There are two types of companies: those that have been hacked, and those that don't know it yet."
+            "💡 Innovation distinguishes between a leader and a follower."
+            "⚡ Cybersecurity is a journey, not a destination."
           )
-          SELECTED_QUOTE="${QUOTES[$RANDOM % ${#QUOTES[@]}]}"
-          echo "QUOTE=${SELECTED_QUOTE}" >> $GITHUB_OUTPUT
-          echo "Generated quote: ${SELECTED_QUOTE}"  # Debug output
+          SELECTED_QUOTE=${CYBER_QUOTES[$RANDOM % ${#CYBER_QUOTES[@]}]}
+          echo "quote=${SELECTED_QUOTE}" >> $GITHUB_OUTPUT
 
-      - name: Update README
+      - name: Inject Quote
         run: |
-          # Clean existing quote content
-          sed -i '/<p id="random-quote"/,/<\/p>/c\
-    <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #00FF00; font-family: '\''Courier New'\'', monospace; margin-bottom: 20px;">\
-    '"${{ steps.generate-quote.outputs.QUOTE }}"'\
-    </p>' README.md
-
-          echo "README after update:"
-          cat README.md  # Debug output
+          # Format with proper escaping and line breaks
+          QUOTE_CONTENT=$(echo '${{ steps.quotes.outputs.quote }}' | sed -e 's/"/\\"/g' -e 's/'\''/\\'\''/g')
+          
+          # Precision replacement using awk
+          awk -i inplace -v quote="$QUOTE_CONTENT" '
+            /<p id="random-quote"/ { 
+              print $0 
+              print "    " quote
+              flag=1
+              next
+            }
+            flag && /<\/p>/ {
+              flag=0
+            }
+            !flag' README.md
 
       - name: Commit Changes
         run: |
-          git config --global user.name "Quote Bot"
-          git config --global user.email "quote-bot@users.noreply.github.com"
+          git config --global user.name "CyberQuote Bot"
+          git config --global user.email "cyber-quote-bot@users.noreply.github.com"
           git add README.md
-          git commit -m "📌 Daily quote update: ${{ steps.generate-quote.outputs.QUOTE }}" || echo "No changes to commit"
+          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Daily Wisdom: ${{ steps.quotes.outputs.quote }}" 
           git push

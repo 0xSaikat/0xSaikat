@@ -1,7 +1,7 @@
 name: Daily Cybersecurity Quote Update
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -11,55 +11,40 @@ jobs:
   quote-updater:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: main  # Explicitly specify your branch name
 
-      - name: Load Sanitized Quotes
-        id: quotes
+      - name: Generate Random Quote
+        id: generate-quote
         run: |
-          # Properly escaped quotes with security sanitization
-          CYBER_QUOTES=(
+          QUOTES=(
             "🔓 The only secure system is one that's powered off, encased in concrete, and guarded."
             "🛡️ Security: Expensive until you need it desperately."
             "💻 Hacking: The art of finding truth in systems."
             "🎯 If you think technology can solve security problems, you don't understand either."
             "🔑 Passwords are like jokes: longer and more obscure = better."
-            "🌐 In cyberspace, the First Amendment is a local ordinance."
-            "♂️ A good hacker learns; a great hacker teaches."
-            "🚨 Two company types: hacked and don't-know-they're-hacked."
-            "💡 Innovation separates leaders from followers."
-            "⚡ Cybersecurity: journey, not destination."
           )
-          # Secure random selection
-          SELECTED_QUOTE="${CYBER_QUOTES[$(( RANDOM % ${#CYBER_QUOTES[@]} ))]}"
-          
-          # Sanitize output using printf for special characters
-          printf -v SAFE_QUOTE "%q" "${SELECTED_QUOTE}"
-          echo "quote=${SAFE_QUOTE}" >> $GITHUB_OUTPUT
+          SELECTED_QUOTE="${QUOTES[$RANDOM % ${#QUOTES[@]}]}"
+          echo "QUOTE=${SELECTED_QUOTE}" >> $GITHUB_OUTPUT
+          echo "Generated quote: ${SELECTED_QUOTE}"  # Debug output
 
-      - name: Inject Quote Safely
+      - name: Update README
         run: |
-          # Use parameter expansion with backslash escapes
-          CLEAN_QUOTE=$(echo '${{ steps.quotes.outputs.quote }}' | \
-            sed -e 's/[\/&|]/\\&/g' \
-                -e "s/'/\\\\'/g" \
-                -e 's/`/\\\\`/g')
-          
-          # Atomic write with temporary file
-          awk -v q="${CLEAN_QUOTE}" '
-            /<p id="random-quote"/ {
-              print $0
-              print "    " q
-              flag=1
-              next
-            }
-            flag && /<\/p>/ { flag=0 }
-            !flag
-          ' README.md > tmp.md && mv tmp.md README.md
+          # Clean existing quote content
+          sed -i '/<p id="random-quote"/,/<\/p>/c\
+    <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #00FF00; font-family: '\''Courier New'\'', monospace; margin-bottom: 20px;">\
+    '"${{ steps.generate-quote.outputs.QUOTE }}"'\
+    </p>' README.md
 
-      - name: Secure Commit
+          echo "README after update:"
+          cat README.md  # Debug output
+
+      - name: Commit Changes
         run: |
-          git config --global user.name "Quote Guardian"
-          git config --global user.email "security-bot@users.noreply.github.com"
+          git config --global user.name "Quote Bot"
+          git config --global user.email "quote-bot@users.noreply.github.com"
           git add README.md
-          git diff --quiet || (git commit -m "🔄 Daily Wisdom: $(date +'%Y-%m-%d')" && git push)
+          git commit -m "📌 Daily quote update: ${{ steps.generate-quote.outputs.QUOTE }}" || echo "No changes to commit"
+          git push

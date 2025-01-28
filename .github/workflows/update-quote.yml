@@ -1,4 +1,3 @@
-
 name: Update Random Cybersecurity Quote
 on:
   schedule:
@@ -45,8 +44,8 @@ jobs:
           # Escape special characters in the quote
           ESCAPED_QUOTE=$(echo "$QUOTE" | sed 's/[\"]/\\&/g')
           
-          # Replace the placeholder with the new quote
-          sed -i 's|<!-- RANDOM_QUOTE_PLACEHOLDER -->|'"$ESCAPED_QUOTE"'|g' README.md
+          # Use perl to replace the content between the <p> tags
+          perl -i -pe 's|(<p id="random-quote"[^>]*>).*?(</p>)|\1'"$ESCAPED_QUOTE"'\2|' README.md
           
           # Configure Git and push changes
           git config --global user.name "github-actions[bot]"

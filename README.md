@@ -163,7 +163,7 @@ A passionate cybersecurity professional specializing in offensive security, web 
     <img src="https://avatars.githubusercontent.com/u/72136146?s=400&u=3eaa132c43ebe24c797e74687c7a54793bd25a81&v=4" align="right" width="50" height="50" alt="image" style="margin-bottom: 20px; margin-top: 20px; border-radius: 50%;"/>
   </a>
   <p id="random-quote" style="font-size: 18px; font-weight: bold; color: #00FF00; font-family: 'Courier New', monospace; margin-bottom: 20px;">
-    🚨 There are two types of companies: those that have been hacked, and those that dont know it yet. | sed -e s///g -e s//\'/g
+    ♂️ A good hacker is always learning; a great hacker is always teaching.
   </p>
 </div>
 

@@ -17,7 +17,7 @@
 </br>
 
 <p style="font-family: 'monospace';">
-A passionate cybersecurity professional specializing in offensive security, web penetration testing, and Python automation. With over two years of experience, Sakil has made significant contributions by ethically hacking and securing organizations like Apple, Microsoft, and NASA.
+Hello, I’m Sakil Hasan Saikat, a dedicated Cybersecurity Researcher and Security Analyst with a strong focus on offensive security, vulnerability management, and ethical hacking. Over the years, I’ve successfully identified and reported numerous security vulnerabilities, earning recognition in over 20 Halls of Fame, including Microsoft, NASA, Google, Siemens, NVIDIA, UNICEF, WHO, Dell Technologies, the U.S. Department of the Treasury, LinkedIn, and the National Science Foundation and more.
 </p>
 
 

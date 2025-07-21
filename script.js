@@ -658,7 +658,7 @@ smoothScrollToBottom() {
     showSudo() {
         this.addOutput(`
             <span style="color: #ff4444;">[sudo] password for 0xSaikat:</span> <br>
-            <span style="color: #ff4444;">gatere is not in the sudoers file. This incident will be reported.</span><br><br>
+            <span style="color: #ff4444;">0xSaikat is not in the sudoers file. This incident will be reported.</span><br><br>
             
             <span style="color: #00ffff;">Just kidding! 😄</span><br>
             You don't need sudo powers to explore my portfolio.<br>

@@ -46,7 +46,9 @@ class TerminalPortfolio {
             pwd: this.showPath.bind(this),
             date: this.showDate.bind(this),
             halloffame: this.showHallOfFame.bind(this),
-            hof: this.showHallOfFame.bind(this)
+            hof: this.showHallOfFame.bind(this),
+            cv: this.downloadResume.bind(this),
+            resume: this.downloadResume.bind(this)
         };
     }
 
@@ -427,23 +429,25 @@ smoothScrollToBottom() {
     }
 
     showHelp() {
-        this.addOutput(`
-            Available commands:<br>
-            <span class="help-command">about</span>        - Learn about me<br>
-            <span class="help-command">projects</span>     - View my projects<br>
-            <span class="help-command">skills</span>       - See my technical skills<br>
-            <span class="help-command">experience</span>   - My work experience<br>
-            <span class="help-command">contact</span>      - How to reach me<br>
-            <span class="help-command">education</span>    - My educational background<br>
-            <span class="help-command">certifications</span> - View my certifications<br>
-            <span class="help-command">leadership</span>   - Leadership and community involvement<br>
-            <span class="help-command">clear</span>        - Clear the terminal<br>
-            <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
-            <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>
-            <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
-            Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>
-        `);
-    }
+    this.addOutput(`
+        Available commands:<br>
+        <span class="help-command">about</span>        - Learn about me<br>
+        <span class="help-command">projects</span>     - View my projects<br>
+        <span class="help-command">skills</span>       - See my technical skills<br>
+        <span class="help-command">experience</span>   - My work experience<br>
+        <span class="help-command">contact</span>      - How to reach me<br>
+        <span class="help-command">education</span>    - My educational background<br>
+        <span class="help-command">certifications</span> - View my certifications<br>
+        <span class="help-command">leadership</span>   - Leadership and community involvement<br>
+        <span class="help-command">cv</span>           - Download my resume/CV<br>
+        <span class="help-command">resume</span>       - Download my resume/CV<br>
+        <span class="help-command">clear</span>        - Clear the terminal<br>
+        <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
+        <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>
+        <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
+        Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>
+    `);
+}
 
     showAbout() {
     this.addOutput(`
@@ -705,6 +709,48 @@ smoothScrollToBottom() {
         <span style="color: #888;">💡 All vulnerabilities discovered through ethical hacking and responsible disclosure practices</span><br>
         <span style="color: #888;">🔗 Complete recognition details available on <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #0ad558;">LinkedIn Profile</a></span>
     `);
+}
+
+
+    downloadResume() {
+    this.addOutput(`
+        <span style="color: #00ffff;">📄 Preparing resume download...</span><br><br>
+        <div class="download-animation">
+            <span style="color: #0ad558;">Downloading CV...</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            
+        </div>
+    `);
+    
+    
+    setTimeout(() => {
+        this.addOutput(`
+            <span style="color: #00ff00;">✅ Download complete!</span><br>
+            <span style="color: #888;">Thanks for downloading my CV. Hope we meet soon!</span>
+        `);
+        
+        
+        this.triggerCVDownload();
+    }, 3000);
+}
+
+
+triggerCVDownload() {
+    const downloadFile = (url, fileName) => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+    
+    
+    const resumeUrl = 'https://saikat.hackbit.org/cv.pdf';
+    downloadFile(resumeUrl, 'Saikat_Resume.pdf');
 }
 
     clearTerminal() {

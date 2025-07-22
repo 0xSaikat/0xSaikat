@@ -598,3 +598,40 @@ body {
     75% { transform: translateY(-7px) rotateY(var(--rotateY, 0deg)) rotateX(var(--rotateX, 0deg)); }
     100% { transform: translateY(0px) rotateY(var(--rotateY, 0deg)) rotateX(var(--rotateX, 0deg)); }
 }
+
+.download-animation {
+    margin: 10px 0;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #333;
+    border: 1px solid #00ff00;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0ad558, #00ff00);
+    width: 0%;
+    animation: progressFill 2.5s ease-in-out forwards;
+}
+
+.download-status {
+    color: #0ad558;
+    font-family: 'Courier New', Courier, monospace;
+    animation: statusUpdate 3s steps(25) forwards;
+}
+
+@keyframes progressFill {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes statusUpdate {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

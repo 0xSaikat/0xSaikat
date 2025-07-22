@@ -44,7 +44,9 @@ class TerminalPortfolio {
             whoami: this.showWhoami.bind(this),
             ls: this.listCommands.bind(this),
             pwd: this.showPath.bind(this),
-            date: this.showDate.bind(this)
+            date: this.showDate.bind(this),
+            halloffame: this.showHallOfFame.bind(this),
+            hof: this.showHallOfFame.bind(this)
         };
     }
 
@@ -437,6 +439,8 @@ smoothScrollToBottom() {
             <span class="help-command">leadership</span>   - Leadership and community involvement<br>
             <span class="help-command">clear</span>        - Clear the terminal<br>
             <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
+            <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
+            <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>
             Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>
         `);
     }
@@ -641,6 +645,65 @@ smoothScrollToBottom() {
         &nbsp;&nbsp;&nbsp;• Penstaller - Automated Security Toolkit Deployment<br>
         &nbsp;&nbsp;&nbsp;• ShieldPlus - Enterprise Password Security Analyzer<br>
         &nbsp;&nbsp;&nbsp;• Contributing to global cybersecurity enhancement
+    `);
+}
+    showHallOfFame() {
+    this.addOutput(`
+        <span style="color: #00ffff;">🏆 Security Research Hall of Fame - 30+ Organizations</span><br><br>
+        
+        <span style="color: #0ad558;">🏅 Special Achievement:</span><br>
+        • <span style="color: #ff6b6b;">CVE-2024-49054</span> - <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49054" target="_blank" style="color: #00ff00;">Microsoft Critical Vulnerability</a><br>
+        • <span style="color: #ff6b6b;">Google Dragon Badge 2024</span> - <a href="https://bughunters.google.com/profile/65b1339f-ee0b-4c08-8c66-f6e0e8390c24" target="_blank" style="color: #00ff00;">Year of the Dragon Recognition</a><br><br>
+        
+        <span style="color: #0ad558;">💻 Technology Giants:</span><br>
+        • <a href="https://msrc.microsoft.com/update-guide" target="_blank" style="color: #00ff00;">Microsoft Security Response Center</a> (2024, 2024)<br>
+        • <a href="https://support.apple.com/en-us/102774" target="_blank" style="color: #00ff00;">Apple Security</a> (Nov 2024, Feb 2025)<br>
+        • <a href="https://bughunters.google.com/profile/65b1339f-ee0b-4c08-8c66-f6e0e8390c24" target="_blank" style="color: #00ff00;">Google Bug Hunters</a> (Jun 2024)<br>
+        • <a href="https://www.oracle.com/security-alerts/cpujul2025.html" target="_blank" style="color: #00ff00;">Oracle Corporation</a> (Jul 2025)<br>
+        • <a href="https://www.nvidia.com/en-us/security/acknowledgements/" target="_blank" style="color: #00ff00;">NVIDIA Corporation</a> (Oct 2024)<br>
+        • <a href="https://support.sap.com/en/my-support/knowledge-base/security-notes-news/credits-for-security-researchers.html" target="_blank" style="color: #00ff00;">SAP SE</a> (Sep 2024)<br><br>
+        
+        <span style="color: #0ad558;">🏛️ Government & International Organizations:</span><br>
+        • <a href="https://bugcrowd.com/nasa_vdp" target="_blank" style="color: #00ff00;">NASA - National Aeronautics and Space Administration</a> (Aug 2024)<br>
+        • <a href="https://bugcrowd.com/treasury_vdp" target="_blank" style="color: #00ff00;">U.S. Department of Treasury</a> (Aug 2024)<br>
+        • <a href="https://bugcrowd.com/nationalscience" target="_blank" style="color: #00ff00;">National Science Foundation</a> (Aug 2024)<br>
+        • <a href="https://bugcrowd.com/usgs_vdp" target="_blank" style="color: #00ff00;">U.S. Geological Survey</a> (Aug 2024)<br>
+        • <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #00ff00;">U.S. Department of Education</a> (Aug 2024)<br>
+        • <a href="https://www.who.int/about/cybersecurity/vulnerability-hall-of-fame/ethical-hacker-list" target="_blank" style="color: #00ff00;">World Health Organization (WHO)</a> (Sep 2024)<br>
+        • <a href="https://www.unesco.org/en/vulnerability-disclosure" target="_blank" style="color: #00ff00;">UNESCO</a> (Sep 2024)<br>
+        • <a href="https://cert.europa.eu/hall-of-fame" target="_blank" style="color: #00ff00;">European Union CERT</a> (Sep 2024)<br><br>
+        
+        <span style="color: #0ad558;">🎓 Universities & Academic Institutions:</span><br>
+        • <a href="https://hackerone.com/stanford-university" target="_blank" style="color: #00ff00;">Stanford University</a> (Jun 2025)<br>
+        • <a href="https://drexel.edu/it/security/services-processes/bug-bounty/" target="_blank" style="color: #00ff00;">Drexel University</a> (Aug 2024)<br>
+        • <a href="https://www.uu.nl/en/organisation/information-and-technology-services-its/hall-of-fame-responsible-disclosure" target="_blank" style="color: #00ff00;">Utrecht University</a> (Oct 2024)<br>
+        • <a href="https://www.sheffield.ac.uk/it-services/security-vulnerability-disclosure" target="_blank" style="color: #00ff00;">University of Sheffield</a> (Sep 2024)<br>
+        • <a href="https://security.utexas.edu/hall-of-fame" target="_blank" style="color: #00ff00;">University of Texas at Austin</a> (Aug 2024)<br>
+        • <a href="https://security.utu.fi/acknowledgements.html" target="_blank" style="color: #00ff00;">University of Turku</a> (Aug 2024)<br>
+        • <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #00ff00;">University of Oslo</a> (Nov 2024)<br><br>
+        
+        <span style="color: #0ad558;">🏢 Corporate & Enterprise:</span><br>
+        • <a href="https://www.siemens.com/global/en/products/services/cert/hall-of-thanks.html" target="_blank" style="color: #00ff00;">Siemens AG</a> (Sep 2024)<br>
+        • <a href="https://www.adyen.com/policies-and-disclaimer/responsible-disclosure-hall-of-fame" target="_blank" style="color: #00ff00;">Adyen N.V.</a> (Aug 2024)<br>
+        • <a href="https://bugcrowd.com/unilever" target="_blank" style="color: #00ff00;">Unilever PLC</a> (Jun 2024)<br>
+        • <a href="https://bugcrowd.com/northwestern-mutual" target="_blank" style="color: #00ff00;">Northwestern Mutual</a> (Nov 2024)<br>
+        • <a href="https://www.gea.com/en/company/about-us/information-security/products/responsible-disclosure-of-security-issues/hall-of-fame/" target="_blank" style="color: #00ff00;">GEA Group AG</a> (Aug 2024)<br>
+        • <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #00ff00;">Zyxel Communications</a> (Aug 2024)<br><br>
+        
+        <span style="color: #0ad558;">🌍 Infrastructure & Specialized Organizations:</span><br>
+        • <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #00ff00;">RIPE NCC</a> (Sep 2024 - First Bounty!)<br>
+        • <a href="https://www.prg.aero/hall-of-fame" target="_blank" style="color: #00ff00;">Prague Airport</a> (Jan 2025)<br>
+        • <a href="https://www.norkart.no/om-oss/trust-center" target="_blank" style="color: #00ff00;">Norkart AS</a> (Sep 2024)<br><br>
+        
+        <span style="color: #ff6b6b;">📊 Statistics:</span><br>
+        • <span style="color: #00ffff;">Total Recognitions:</span> 30+ Organizations<br>
+        • <span style="color: #00ffff;">CVE Assignments:</span> 1 (Microsoft)<br>
+        • <span style="color: #00ffff;">Countries Reached:</span> 15+ Nations<br>
+        • <span style="color: #00ffff;">First Bounty:</span> RIPE NCC (Sep 2024)<br>
+        • <span style="color: #00ffff;">Latest Recognition:</span> Oracle (Jul 2025)<br><br>
+        
+        <span style="color: #888;">💡 All vulnerabilities discovered through ethical hacking and responsible disclosure practices</span><br>
+        <span style="color: #888;">🔗 Complete recognition details available on <a href="https://www.linkedin.com/in/0xsaikat/details/honors/" target="_blank" style="color: #0ad558;">LinkedIn Profile</a></span>
     `);
 }
 

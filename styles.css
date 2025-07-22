@@ -635,3 +635,53 @@ body {
     0% { opacity: 0.5; }
     100% { opacity: 1; }
 }
+
+.crypto-wallet {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #0ad558;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.wallet-address {
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: inline-block;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: all;
+    word-break: break-all;
+}
+
+.wallet-address:hover {
+    background: rgba(0, 255, 0, 0.15);
+    border-color: #0ad558;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    transform: scale(1.02);
+}
+
+.copy-hint {
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.wallet-address:active {
+    transform: scale(0.98);
+    background: rgba(0, 255, 0, 0.2);
+}

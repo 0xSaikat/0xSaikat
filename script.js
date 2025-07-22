@@ -438,9 +438,9 @@ smoothScrollToBottom() {
             <span class="help-command">certifications</span> - View my certifications<br>
             <span class="help-command">leadership</span>   - Leadership and community involvement<br>
             <span class="help-command">clear</span>        - Clear the terminal<br>
-            <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
             <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
             <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>
+            <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
             Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>
         `);
     }

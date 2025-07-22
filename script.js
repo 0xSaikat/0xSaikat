@@ -48,9 +48,44 @@ class TerminalPortfolio {
             halloffame: this.showHallOfFame.bind(this),
             hof: this.showHallOfFame.bind(this),
             cv: this.downloadResume.bind(this),
-            resume: this.downloadResume.bind(this)
+            resume: this.downloadResume.bind(this),
+            donate: this.showDonate.bind(this),
+            support: this.showDonate.bind(this),
+            crypto: this.showDonate.bind(this),
+            wallet: this.showDonate.bind(this)
         };
     }
+
+    copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            this.addOutput(`<span style="color: #00ff00;">✅ Copied to clipboard: ${text}</span>`);
+        }).catch(() => {
+            this.fallbackCopy(text);
+        });
+    } else {
+        this.fallbackCopy(text);
+    }
+}
+
+
+fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        this.addOutput(`<span style="color: #00ff00;">✅ Copied to clipboard: ${text}</span>`);
+    } catch (err) {
+        this.addOutput(`<span style="color: #ff4444;">❌ Failed to copy. Please copy manually: ${text}</span>`);
+    }
+    
+    document.body.removeChild(textArea);
+}
 
     setupCardStrap() {
     const cardStrap = document.getElementById('cardStrap');
@@ -441,11 +476,13 @@ smoothScrollToBottom() {
         <span class="help-command">leadership</span>   - Leadership and community involvement<br>
         <span class="help-command">cv</span>           - Download my resume/CV<br>
         <span class="help-command">resume</span>       - Download my resume/CV<br>
+        <span class="help-command">donate</span>       - Support my cybersecurity research 💰<br>
+        <span class="help-command">support</span>      - Support my cybersecurity research 💰<br>
         <span class="help-command">clear</span>        - Clear the terminal<br>
         <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
         <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>
         <span class="help-command">sudo</span>         - Try it and see 😉<br><br>
-        Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>
+        Bonus commands: <span class="help-command">whoami</span>, <span class="help-command">ls</span>, <span class="help-command">pwd</span>, <span class="help-command">date</span>, <span class="help-command">crypto</span>, <span class="help-command">wallet</span>
     `);
 }
 
@@ -651,6 +688,39 @@ smoothScrollToBottom() {
         &nbsp;&nbsp;&nbsp;• Contributing to global cybersecurity enhancement
     `);
 }
+
+
+    showDonate() {
+    this.addOutput(`
+        <span style="color: #00ffff;">💰 Support My Cybersecurity Research</span><br><br>
+        
+        <span style="color: #0ad558;">🚀 Help fund my security research and open-source projects!</span><br><br>
+        
+        <div class="crypto-wallet">
+            <span style="color: #ff6b6b;">🌐 Unstoppable Domain:</span><br>
+            <span class="wallet-address" onclick="copyToClipboard('0xsaikat.crypto')" title="Click to copy">
+                0xsaikat.crypto
+            </span>
+            <span class="copy-hint">[Click to copy]</span><br><br>
+            
+            <span style="color: #ff6b6b;">💎 Wallet Address (ETH/Polygon/BSC):</span><br>
+            <span class="wallet-address" onclick="copyToClipboard('0x82bcf49437dc29ec5ebc3dcc4f5e8a7f8d2068db')" title="Click to copy">
+                0x82bcf49437dc29ec5ebc3dcc4f5e8a7f8d2068db
+            </span>
+            <span class="copy-hint">[Click to copy]</span><br><br>
+        </div>
+        
+        <span style="color: #0ad558;">🎯 Your support helps me:</span><br>
+        • Continue vulnerability research and responsible disclosure<br>
+        • Develop open-source security tools (FindME, Penstaller, ShieldPlus)<br>
+        • Create educational cybersecurity content<br>
+        • Contribute to the global security community<br><br>
+        
+        <span style="color: #888;">💝 Every contribution, no matter the size, makes a difference!</span><br>
+        <span style="color: #00ff00;">Thank you for supporting ethical hacking and cybersecurity research! 🙏</span>
+    `);
+}
+
     showHallOfFame() {
     this.addOutput(`
         <span style="color: #00ffff;">🏆 Security Research Hall of Fame - 30+ Organizations</span><br><br>

@@ -566,8 +566,8 @@ smoothScrollToBottom() {
         <span class="help-command">leadership</span>   - Leadership and community involvement<br>
         <span class="help-command">cv</span>           - Download my resume/CV<br>
         <span class="help-command">resume</span>       - Download my resume/CV<br>
-        <span class="help-command">donate</span>       - Support my cybersecurity research 💰<br>
-        <span class="help-command">support</span>      - Support my cybersecurity research 💰<br>
+        <span class="help-command">donate</span>       - Support my cybersecurity research<br>
+        <span class="help-command">support</span>      - Support my cybersecurity research<br>
         <span class="help-command">clear</span>        - Clear the terminal<br>
         <span class="help-command">halloffame</span>  - View my security hall of fame recognitions<br>
         <span class="help-command">hof</span>         - View my security hall of fame recognitions<br>

@@ -685,3 +685,74 @@ body {
     transform: scale(0.98);
     background: rgba(0, 255, 0, 0.2);
 }
+
+@keyframes grabBounce {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    15% {
+        transform: translateY(-25px);
+    }
+    30% {
+        transform: translateY(10px);
+    }
+    45% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-8px);
+    }
+    90% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+@keyframes strapTension {
+    0% {
+        transform: translateX(-50%) translateY(0px) scaleY(1);
+    }
+    15% {
+        transform: translateX(-50%) translateY(-8px) scaleY(1.15);
+    }
+    30% {
+        transform: translateX(-50%) translateY(3px) scaleY(0.9);
+    }
+    45% {
+        transform: translateX(-50%) translateY(-5px) scaleY(1.08);
+    }
+    60% {
+        transform: translateX(-50%) translateY(2px) scaleY(0.95);
+    }
+    75% {
+        transform: translateX(-50%) translateY(-3px) scaleY(1.03);
+    }
+    90% {
+        transform: translateX(-50%) translateY(1px) scaleY(0.98);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0px) scaleY(1);
+    }
+}
+
+
+.card-grab-bounce {
+    animation: grabBounce 2.5s ease-out forwards;
+}
+
+.strap-tension {
+    animation: strapTension 2.5s ease-out forwards;
+}
+
+
+.card-ready {
+    opacity: 1;
+    transform: translateY(0px);
+}

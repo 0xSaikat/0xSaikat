@@ -21,6 +21,7 @@ class TerminalPortfolio {
         this.setup3DCard();
         this.setupCardStrap();
         this.initializeGrabAnimation();
+        this.loadMotivationQuote();
     }
 
     initializeTerminal() {
@@ -64,6 +65,45 @@ class TerminalPortfolio {
     }, 800); 
 }
 
+async loadMotivationQuote() {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/0xSaikat/0xSaikat/refs/heads/main/portfolio-quote.txt');
+        const quote = await response.text();
+        
+        const quoteElement = document.getElementById('motivationQuote');
+        if (quoteElement && quote.trim()) {
+            
+            this.typeWriterEffect(quoteElement, quote.trim(), 50);
+        }
+    } catch (error) {
+        console.log('Quote loading failed, using fallback');
+        const fallbackQuotes = [
+            "Hack the planet, secure the future 🔐",
+            "Code with purpose, hack with ethics 💻",
+            "Break it to make it stronger 🛡️",
+            "In code we trust, in security we verify ⚡",
+            "Think like an attacker, defend like a guardian 🎯"
+        ];
+        const randomQuote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+        const quoteElement = document.getElementById('motivationQuote');
+        if (quoteElement) {
+            this.typeWriterEffect(quoteElement, randomQuote, 50);
+        }
+    }
+}
+
+typeWriterEffect(element, text, speed = 50) {
+    element.textContent = '';
+    let i = 0;
+    const timer = setInterval(() => {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(timer);
+        }
+    }, speed);
+}
 
 startGrabBounceAnimation() {
     const cardStrap = document.getElementById('cardStrap');

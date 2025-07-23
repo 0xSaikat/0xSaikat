@@ -20,6 +20,7 @@ class TerminalPortfolio {
         this.setupEventListeners();
         this.setup3DCard();
         this.setupCardStrap();
+        this.initializeGrabAnimation();
     }
 
     initializeTerminal() {
@@ -55,6 +56,55 @@ class TerminalPortfolio {
             wallet: this.showDonate.bind(this)
         };
     }
+
+    initializeGrabAnimation() {
+    
+    setTimeout(() => {
+        this.startGrabBounceAnimation();
+    }, 800); 
+}
+
+
+startGrabBounceAnimation() {
+    const cardStrap = document.getElementById('cardStrap');
+    
+    
+    if (this.card3d) {
+        this.card3d.classList.add('card-grab-bounce');
+        
+        
+        setTimeout(() => {
+            this.card3d.classList.remove('card-grab-bounce');
+        }, 2500);
+    }
+    
+    if (cardStrap) {
+        cardStrap.classList.add('strap-tension');
+        
+        
+        setTimeout(() => {
+            cardStrap.classList.remove('strap-tension');
+        }, 2500);
+    }
+    
+    
+    this.addGrabEffect();
+}
+
+
+addGrabEffect() {
+    
+    setTimeout(() => {
+        if (this.output) {
+            const grabMessage = document.createElement('div');
+            grabMessage.className = 'output';
+            grabMessage.style.color = '#888';
+            grabMessage.style.fontSize = '0.9em';
+            this.output.appendChild(grabMessage);
+            this.smoothScrollToBottom();
+        }
+    }, 1500);
+}
 
     copyToClipboard(text) {
     if (navigator.clipboard && window.isSecureContext) {

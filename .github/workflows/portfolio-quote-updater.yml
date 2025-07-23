@@ -1,0 +1,45 @@
+name: Portfolio Quote Updater
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-portfolio-quote:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Update portfolio quote
+      run: |
+        quotes=(
+          "Hack the planet, secure the future 🔐"
+          "Code with purpose, hack with ethics 💻"
+          "Break it to make it stronger 🛡️"
+          "In code we trust, in security we verify ⚡"
+          "Think like an attacker, defend like a guardian 🎯"
+          "Security is not a product, but a process 🔄"
+          "The best defense is a good offense 🏹"
+          "Stay curious, stay secure 🔍"
+          "Every vulnerability is a lesson in disguise 📚"
+          "Ethical hacking: Making the digital world safer 🌐"
+          "0x48656c6c6f20576f726c64 - Hello World in hex 👋"
+          "Root access to knowledge, user access to wisdom 🧠"
+          "Penetrate systems, protect users 🛡️"
+          "CVE today, secure tomorrow 📈"
+          "Bug bounty hunter by day, guardian by night 🌙"
+        )
+        
+        # Get random quote
+        quote="${quotes[$RANDOM % ${#quotes[@]}]}"
+        echo "$quote" > portfolio-quote.txt
+        
+    - name: Commit and push portfolio quote
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add portfolio-quote.txt
+        git commit -m "🎯 Portfolio quote daily update" || exit 0
+        git push

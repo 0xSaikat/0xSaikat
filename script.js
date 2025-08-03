@@ -691,7 +691,7 @@ smoothScrollToBottom() {
         
         📧 <span style="color: #0ad558;">Email:</span> <a href="mailto:saikat@hackbit.org" target="_blank" style="color: #00ff00;">saikat@hackbit.org</a><br>
         🔗 <span style="color: #0ad558;">LinkedIn:</span> <a href="https://linkedin.com/in/0xsaikat" target="_blank" style="color: #00ff00;">linkedin.com/in/0xsaikat</a><br>
-        🐙 <span style="color: #0ad558;">GitHub:</span> <a href="https://github.com/0xsaikat" target="_blank" style="color: #00ff00;">github.com/0xsaikat</a><br>
+        🔖 <span style="color: #0ad558;">GitHub:</span> <a href="https://github.com/0xsaikat" target="_blank" style="color: #00ff00;">github.com/0xsaikat</a><br>
         🌐 <span style="color: #0ad558;">Website:</span> <a href="https://saikat.hackbit.org" target="_blank" style="color: #00ff00;">saikat.hackbit.org</a><br>
         📱 <span style="color: #0ad558;">Phone:</span> Available on Request<br>
         📍 <span style="color: #0ad558;">Location:</span> Khulna, Bangladesh<br><br>

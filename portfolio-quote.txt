@@ -1,1 +1,1 @@
-Every vulnerability is a lesson in disguise 📚
+0x48656c6c6f20576f726c64 - Hello World in hex 👋

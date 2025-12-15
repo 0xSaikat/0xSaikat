@@ -186,6 +186,8 @@ Hello, I’m Sakil Hasan Saikat, a dedicated Cybersecurity Researcher and Securi
 </br>
 
 <div align="center">
-  <a href="https://github.com/0xSaikat"><img src="https://img.icons8.com/material-outlined/20/808080/github.png" alt="GitHub"></a>
-  <a href="https://twitter.com/0xSaikat"><img src="https://img.icons8.com/material-outlined/20/808080/twitter.png" alt="X"></a>
+  <a href="https://github.com/0xSaikat"><img src="https://img.icons8.com/material-outlined/30/808080/github.png" alt="GitHub"></a>
+  <a href="https://twitter.com/0xSaikat"><img src="https://img.icons8.com/material-outlined/30/808080/twitter.png" alt="Twitter"></a>
+  <a href="https://www.linkedin.com/in/0xsaikat/"><img src="https://img.icons8.com/material-outlined/30/808080/linkedin.png" alt="LinkedIn"></a>
+  <a href="https://findme.hackbit.org"><img src="https://img.icons8.com/material-outlined/30/808080/internet.png" alt="Web"></a>
 </div>

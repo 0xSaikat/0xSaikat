@@ -25,10 +25,6 @@ class TerminalPortfolio {
     }
 
     initializeTerminal() {
-
-        if (this.input) {
-            this.input.focus();
-        }
         
         this.commands = {
             help: this.showHelp.bind(this),
@@ -72,11 +68,9 @@ async loadMotivationQuote() {
         
         const quoteElement = document.getElementById('motivationQuote');
         if (quoteElement && quote.trim()) {
-            
             this.typeWriterEffect(quoteElement, quote.trim(), 50);
         }
     } catch (error) {
-        console.log('Quote loading failed, using fallback');
         const fallbackQuotes = [
             "Hack the planet, secure the future 🔐",
             "Code with purpose, hack with ethics 💻",
@@ -423,10 +417,6 @@ fallbackCopy(text) {
                 this.input.focus();
             }
         });
-
-        if (this.input) {
-            this.input.focus();
-        }
 
         setInterval(() => this.updateTimestamp(), 1000);
     }
@@ -964,7 +954,7 @@ Ethical Hacker.<br>
 
     showPath() {
         this.addOutput(`
-            /home/hackbit/0xSaikat/portfolio
+            ~/portfolio
         `);
     }
 
@@ -984,16 +974,89 @@ Ethical Hacker.<br>
 }
 
 
+let _terminalInstance = null;
+
 document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
-        const terminal = new TerminalPortfolio();
-        
-
-        const input = document.getElementById('terminal-input');
-        if (input) {
-            input.focus();
-            input.click();
-        }
+        _terminalInstance = new TerminalPortfolio();
     }, 100);
+});
+
+// Global shim so inline onclick="copyToClipboard(...)" works
+function copyToClipboard(text) {
+    if (_terminalInstance) {
+        _terminalInstance.copyToClipboard(text);
+    } else {
+        navigator.clipboard.writeText(text).catch(() => {});
+    }
+}
+
+
+/* ============================================================
+   CYBERPUNK VIEW — Global helpers
+   ============================================================ */
+
+function toggleView() {
+    const terminalView = document.getElementById('terminalView');
+    const isActive = terminalView.classList.contains('active');
+
+    if (isActive) {
+        terminalView.classList.remove('active');
+        document.body.style.overflow = '';
+    } else {
+        terminalView.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        const input = document.getElementById('terminal-input');
+        if (input) setTimeout(() => input.focus(), 50);
+    }
+}
+
+function toggleMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+}
+
+function copyText(address, el) {
+    const addr = el.querySelector('.crypto-addr');
+    navigator.clipboard.writeText(address).then(() => {
+        const original = addr.textContent;
+        addr.textContent = '✅ Copied!';
+        addr.style.color = '#0ad558';
+        setTimeout(() => {
+            addr.textContent = original;
+            addr.style.color = '';
+        }, 2000);
+    }).catch(() => {
+        addr.textContent = address;
+    });
+}
+
+// Scroll reveal animation
+function initRevealAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// Load motivational quote into cyberpunk footer too
+async function loadFooterQuote() {
+    try {
+        const res  = await fetch('https://raw.githubusercontent.com/0xSaikat/0xSaikat/refs/heads/main/portfolio-quote.txt');
+        const text = await res.text();
+        const el   = document.getElementById('footerQuote');
+        if (el && text.trim()) el.textContent = text.trim();
+    } catch (_) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadFooterQuote();
+    initRevealAnimations();
 });

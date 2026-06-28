@@ -3,345 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | HackBit</title>
+    <title>404 — Page Not Found | 0xSaikat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --accent: #00ff41;
+            --purple: #8b5cf6;
+            --cyan:   #00f0ff;
+            --red:    #fd3649;
+            --green:  #0ad558;
+            --dark:   #050508;
+            --mono:   'Share Tech Mono', 'Courier New', monospace;
+            --orb:    'Orbitron', sans-serif;
         }
-        
+
         body {
-            font-family: 'Courier New', monospace;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            color: #00ff41;
+            background: var(--dark);
+            color: #c8c8d8;
+            font-family: var(--mono);
             height: 100vh;
             overflow: hidden;
             position: relative;
-        }
-        
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            justify-content: center;
+        }
+
+        /* scanlines */
+        body::before {
+            content: '';
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.07) 2px,
+                rgba(0,0,0,0.07) 4px
+            );
+        }
+
+        canvas#grid-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .scene {
             position: relative;
             z-index: 10;
-            padding: 20px;
-        }
-        
-        .terminal-window {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff41;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-            max-width: 600px;
+            text-align: center;
+            padding: 2rem;
+            max-width: 700px;
             width: 100%;
-            backdrop-filter: blur(10px);
         }
-        
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #00ff41;
+
+        .pre-tag {
+            font-family: var(--orb);
+            font-size: 0.65rem;
+            color: var(--cyan);
+            letter-spacing: 0.25em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.5s 0.2s forwards;
         }
-        
-        .terminal-buttons {
-            display: flex;
-            gap: 8px;
-            margin-right: 15px;
+
+        .glitch-404 {
+            font-family: var(--orb);
+            font-size: clamp(5rem, 18vw, 10rem);
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: 0.06em;
+            position: relative;
+            opacity: 0;
+            animation: fadeUp 0.5s 0.4s forwards;
         }
-        
-        .btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+
+        .glitch-404::before,
+        .glitch-404::after {
+            content: '404';
+            position: absolute;
+            top: 0; left: 0; width: 100%;
         }
-        
-        .btn.close { background: #ff5f56; }
-        .btn.minimize { background: #ffbd2e; }
-        .btn.maximize { background: #27ca3f; }
-        
-        .terminal-title {
-            color: #00ff41;
-            font-size: 14px;
+        .glitch-404::before {
+            color: var(--red);
+            clip: rect(0,0,0,0);
+            animation: g1 3s infinite 1s;
         }
-        
-        .error-code {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #ff0040;
-            text-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
-            margin-bottom: 10px;
-            animation: glitch 2s infinite;
+        .glitch-404::after {
+            color: var(--cyan);
+            clip: rect(0,0,0,0);
+            animation: g2 2.5s infinite 1.2s;
         }
-        
-        @keyframes glitch {
-            0%, 90%, 100% {
-                transform: translate(0);
-            }
-            10% {
-                transform: translate(-2px, 2px);
-            }
-            20% {
-                transform: translate(2px, -2px);
-            }
-            30% {
-                transform: translate(-2px, -2px);
-            }
-            40% {
-                transform: translate(2px, 2px);
-            }
-            50% {
-                transform: translate(-2px, 2px);
-            }
-            60% {
-                transform: translate(2px, -2px);
-            }
-            70% {
-                transform: translate(-2px, -2px);
-            }
-            80% {
-                transform: translate(2px, 2px);
-            }
+
+        @keyframes g1 {
+            0%,90%,100% { clip: rect(0,0,0,0); transform: translate(0); }
+            10% { clip: rect(20px,9999px,40px,0); transform: translate(-4px,0); }
+            20% { clip: rect(60px,9999px,80px,0); transform: translate(4px,0); }
+            30% { clip: rect(10px,9999px,30px,0); transform: translate(-2px,0); }
         }
-        
-        .error-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #ffffff;
+        @keyframes g2 {
+            0%,90%,100% { clip: rect(0,0,0,0); transform: translate(0); }
+            15% { clip: rect(50px,9999px,70px,0); transform: translate(3px,0); }
+            25% { clip: rect(5px,9999px,25px,0); transform: translate(-3px,0); }
         }
-        
-        .error-message {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #cccccc;
+
+        .sub-title {
+            font-family: var(--orb);
+            font-size: clamp(0.8rem, 2vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: #fff;
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.5s 0.6s forwards;
         }
-        
-        .command-line {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid #00ff41;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
+
+        .terminal-block {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(139,92,246,0.2);
+            border-left: 2px solid var(--accent);
+            padding: 1.2rem 1.5rem;
             text-align: left;
-            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+            opacity: 0;
+            animation: fadeUp 0.5s 0.8s forwards;
         }
-        
-        .prompt {
-            color: #00ff41;
-        }
-        
-        .command {
-            color: #ffffff;
-        }
-        
-        .buttons {
+
+        .t-prompt { color: var(--red); }
+        .t-cmd    { color: #e8e8e8; }
+        .t-err    { color: var(--red); }
+        .t-info   { color: #888; }
+        .t-ok     { color: var(--green); }
+
+        .actions {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.5s 1s forwards;
         }
-        
-        .btn-primary, .btn-secondary {
-            padding: 12px 25px;
-            border: 2px solid;
-            background: transparent;
-            color: #00ff41;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-primary {
-            border-color: #00ff41;
-            color: #00ff41;
-        }
-        
-        .btn-primary:hover {
-            background: #00ff41;
-            color: #000000;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
-        }
-        
-        .btn-secondary {
-            border-color: #ff0040;
-            color: #ff0040;
-        }
-        
-        .btn-secondary:hover {
-            background: #ff0040;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
-        }
-        
-        .hackbit-logo {
-            font-size: 1.2rem;
-            color: #00ff41;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
 
-        
-        .footer {
-            position: absolute;
-            bottom: 20px;
+        .btn-home {
+            font-family: var(--orb);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-home.primary {
+            background: var(--purple);
+            color: #fff;
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        }
+        .btn-home.primary:hover { background: var(--accent); color: #000; }
+
+        .btn-home.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        }
+        .btn-home.secondary:hover { background: var(--accent); color: #000; }
+
+        .sig {
+            position: fixed;
+            bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            color: #666666;
-            font-size: 12px;
+            font-family: var(--orb);
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: #333;
+            z-index: 10;
         }
-        
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 2.5rem;
-            }
-            
-            .error-title {
-                font-size: 1.4rem;
-            }
-            
-            .terminal-window {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                max-width: 200px;
-            }
+        .sig span { color: var(--accent); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .glitch-404 { font-size: 5rem; }
+            .terminal-block { font-size: 0.72rem; }
+            .actions { flex-direction: column; align-items: center; }
+            .btn-home { width: 220px; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <canvas class="matrix-bg" id="matrix"></canvas>
-    
-    <div class="container">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <div class="btn close"></div>
-                    <div class="btn minimize"></div>
-                    <div class="btn maximize"></div>
-                </div>
-                <div class="terminal-title">saikat@hackbit:~$ error_404</div>
-            </div>
-            
-            <div class="hackbit-logo">
-                &gt; HackBit Security Platform
-            </div>
-            
-            <div class="error-code">404</div>
-            <div class="error-title">NOT FOUND</div>
-            <div class="error-message">
-                The requested resource could not be located in our secure database.<br>
-                This page may have been moved, deleted, or is protected by our security protocols.<br>
-                <strong style="color: #00ff41;">Click anywhere or press any key to return home.</strong>
-            </div>
-            
-            <div class="command-line">
-                <span class="prompt">saikat@hackbit:~$</span> <span class="command">ls -la /var/www/html/</span><br>
-                <span style="color: #ff0040;">drwxr-xr-x 2 root root 4096 Jul 22 15:30 .</span><br>
-                <span style="color: #ff0040;">drwxr-xr-x 3 root root 4096 Jul 22 15:29 ..</span><br>
-                <span style="color: #ff0040;">-rw-r--r-- 1 root root  612 Jul 22 15:30 index.html</span><br>
-                <span style="color: #cccccc;">File not found: 404 error detected</span>
-            </div>
-            
-            <div class="buttons">
-                <a href="https://saikat.hackbit.org/" class="btn-primary">Return Home</a>
-                <a href="https://saikat.hackbit.org/" class="btn-secondary">Click Anywhere</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        © 2025 HackBit Security Platform | Ethical Hacking & Security Research
+
+<canvas id="grid-bg"></canvas>
+
+<div class="scene">
+    <div class="pre-tag">// ERROR DETECTED</div>
+
+    <div class="glitch-404">404</div>
+    <div class="sub-title">PAGE NOT FOUND</div>
+
+    <div class="terminal-block">
+        <span class="t-prompt">0xSaikat@hackbit:~$</span> <span class="t-cmd">curl -I <span id="typed-url"></span></span><br>
+        <span class="t-err">HTTP/1.1 404 Not Found</span><br>
+        <span class="t-info">Content-Type: text/html; charset=utf-8</span><br>
+        <span class="t-info">X-Powered-By: 0xSaikat</span><br>
+        <span class="t-err">Error: Requested path does not exist in the secure zone.</span><br>
+        <span class="t-ok">Suggestion: Run <b>cd /home</b> or navigate back to base.</span>
     </div>
 
-    <script>
-        
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+    <div class="actions">
+        <a href="/" class="btn-home primary">↩ RETURN HOME</a>
+        <a href="/#contact" class="btn-home secondary">CONTACT ME_</a>
+    </div>
+</div>
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+<div class="sig">© 2025 <span>0xSaikat</span> · Sakil Hasan Saikat</div>
 
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
+<script>
+// Animated grid background
+const canvas = document.getElementById('grid-bg');
+const ctx = canvas.getContext('2d');
+let W, H, cols, rows, drops = [];
+const chars = '01アイウエオカキクABCDEF0xSAIKAT'.split('');
 
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
+function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    cols = Math.floor(W / 18);
+    drops = Array(cols).fill(1);
+}
 
-        const drops = [];
-        for(let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
+function draw() {
+    ctx.fillStyle = 'rgba(5,5,8,0.08)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.font = '13px Share Tech Mono, monospace';
+    for (let i = 0; i < cols; i++) {
+        const ch = chars[Math.floor(Math.random() * chars.length)];
+        const alpha = Math.random() * 0.25 + 0.05;
+        ctx.fillStyle = `rgba(0,255,65,${alpha})`;
+        ctx.fillText(ch, i * 18, drops[i] * 18);
+        if (drops[i] * 18 > H && Math.random() > 0.97) drops[i] = 0;
+        drops[i]++;
+    }
+}
 
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+resize();
+window.addEventListener('resize', resize);
+setInterval(draw, 60);
 
-            ctx.fillStyle = '#00ff41';
-            ctx.font = fontSize + 'px courier';
+// Type current URL path
+const urlEl = document.getElementById('typed-url');
+const url = window.location.pathname + window.location.search;
+let idx = 0;
+function typeUrl() {
+    if (idx < url.length) {
+        urlEl.textContent += url[idx++];
+        setTimeout(typeUrl, 30);
+    }
+}
+setTimeout(typeUrl, 1200);
 
-            for(let i = 0; i < drops.length; i++) {
-                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                ctx.globalAlpha = Math.random() * 0.5 + 0.1;
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if(drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-            ctx.globalAlpha = 1;
-        }
-
-        setInterval(draw, 50);
-
-        
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        
-        document.addEventListener('click', () => {
-            window.location.href = 'https://saikat.hackbit.org/';
-        });
-
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === 'Escape') {
-                window.location.href = 'https://saikat.hackbit.org/';
-            }
-        });
-    </script>
+// Click/key to go home
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' || e.key === 'Enter') window.location.href = '/';
+});
+</script>
 </body>
 </html>

@@ -5,35 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0xSaikat - Cybersecurity Researcher</title>
 
-    <meta name="description" content="Sakil Hasan Saikat (0xSaikat) - Distinguished Cybersecurity Researcher and Ethical Hacker specializing in vulnerability assessment, penetration testing, and responsible security disclosure. Interactive portfolio terminal showcasing cybersecurity expertise.">
+    <meta name="description" content="Sakil Hasan Saikat (0xSaikat) - Cybersecurity Researcher and Ethical Hacker specializing in vulnerability assessment, penetration testing, and responsible security disclosure.">
     <meta name="keywords" content="cybersecurity researcher, ethical hacker, penetration testing, vulnerability assessment, bug bounty hunter, security researcher, 0xSaikat, Sakil Hasan Saikat">
     <meta name="author" content="Sakil Hasan Saikat">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="en">
-    <meta name="revisit-after" content="7 days">
 
     <meta property="og:title" content="0xSaikat - Cybersecurity Researcher & Ethical Hacker">
-    <meta property="og:description" content="Distinguished Cybersecurity Researcher and Ethical Hacker with proven expertise in vulnerability assessment, penetration testing, and responsible security disclosure. Explore my interactive portfolio terminal.">
-    <meta property="og:image" content="https://saikat.hackbit.org/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="0xSaikat - Cybersecurity Researcher Portfolio">
-    <meta property="og:url" content="https://saikat.hackbit.org">
+    <meta property="og:description" content="Cybersecurity Researcher and Ethical Hacker with expertise in vulnerability assessment and penetration testing.">
+    <meta property="og:image" content="https://saikat.hackzar.com/og-image.jpg">
+    <meta property="og:url" content="https://saikat.hackzar.com">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="0xSaikat Portfolio">
-    <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@0xSaikat">
     <meta name="twitter:creator" content="@0xSaikat">
     <meta name="twitter:title" content="0xSaikat - Cybersecurity Researcher & Ethical Hacker">
-    <meta name="twitter:description" content="Distinguished Cybersecurity Researcher and Ethical Hacker specializing in vulnerability assessment and penetration testing. Interactive portfolio terminal.">
-    <meta name="twitter:image" content="https://saikat.hackbit.org/twitter-image.jpg">
-    <meta name="twitter:image:alt" content="0xSaikat Cybersecurity Portfolio">
+    <meta name="twitter:image" content="https://saikat.hackzar.com/og-image.jpg">
 
-    <meta name="theme-color" content="#ff0400">
-    <meta name="msapplication-TileColor" content="#ff0400">
-    <link rel="canonical" href="https://saikat.hackbit.org">
+    <meta name="theme-color" content="#fcee09">
+    <link rel="canonical" href="https://saikat.hackzar.com">
 
     <script type="application/ld+json">
 {
@@ -42,101 +32,439 @@
   "name": "Sakil Hasan Saikat",
   "alternateName": "0xSaikat",
   "jobTitle": "Cybersecurity Researcher",
-  "description": "Distinguished Cybersecurity Researcher and Ethical Hacker",
-  "url": "https://saikat.hackbit.org",
+  "url": "https://saikat.hackzar.com",
   "sameAs": [
     "https://twitter.com/0xSaikat",
     "https://github.com/0xSaikat",
     "https://linkedin.com/in/0xSaikat"
-  ],
-  "knowsAbout": ["Cybersecurity", "Ethical Hacking", "Penetration Testing", "Vulnerability Assessment"]
+  ]
 }
-</script>
+    </script>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="terminal-header">
-    <div class="header-left">
-        <h1 class="name">Sakil Hasan Saikat</h1>
-        <p class="title">Cybersecurity Researcher</p>
+<!-- Cyberpunk scanline overlay -->
+<div class="scanlines"></div>
+<!-- Glitch noise overlay -->
+<div class="noise"></div>
+
+<!-- ========== CYBERPUNK VIEW ========== -->
+<div id="cyberpunkView" class="view active">
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-logo">
+            <span class="glitch-text" data-text="0xSaikat">0xSaikat</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#hof">HOF</a>
+            <a href="#contact">CONTACT</a>
+            <a href="cv.pdf" target="_blank" class="nav-cta">RESUME_</a>
+        </div>
+        <!-- Mobile hamburger -->
+        <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+        </div>
+        <!-- Terminal toggle inside nav on desktop -->
+        <button class="nav-terminal-toggle" onclick="toggleView()">
+            <span>⌨</span>
+            <span>TERMINAL</span>
+        </button>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about" onclick="toggleMobileNav()">ABOUT</a>
+        <a href="#skills" onclick="toggleMobileNav()">SKILLS</a>
+        <a href="#projects" onclick="toggleMobileNav()">PROJECTS</a>
+        <a href="#hof" onclick="toggleMobileNav()">HOF</a>
+        <a href="#contact" onclick="toggleMobileNav()">CONTACT</a>
+        <a href="cv.pdf" target="_blank" onclick="toggleMobileNav()">RESUME_</a>
+        <a href="#" onclick="toggleMobileNav(); toggleView();">⌨ TERMINAL VIEW</a>
     </div>
-    </div>
-    
-    <div class="container">
-        
-        <div class="left-panel">
-           <div class="profile-card">
-    <div class="card-strap" id="cardStrap"></div>
-    <div class="card-3d" id="card3d">
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="profile.jpeg" alt="Profile Picture" class="profile-img">
-                <div class="card-info">
-                    <h3>Sakil Hasan Saikat</h3>
-                    <div class="username">@0xSaikat</div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-tag">// CYBERSECURITY RESEARCHER</div>
+            <h1 class="hero-name glitch-text" data-text="SAKIL HASAN SAIKAT">SAKIL HASAN SAIKAT</h1>
+            <div class="hero-handle">@0xSaikat</div>
+            <p class="hero-tagline">Ethical Hacker · Bug Bounty Hunter · Security Analyst</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">30+</span>
+                    <span class="stat-label">HALL OF FAME</span>
+                </div>
+                <div class="stat-divider">|</div>
+                <div class="stat">
+                    <span class="stat-num">1</span>
+                    <span class="stat-label">CVE ASSIGNED</span>
+                </div>
+                <div class="stat-divider">|</div>
+                <div class="stat">
+                    <span class="stat-num">15+</span>
+                    <span class="stat-label">NATIONS</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">CONTACT ME_</a>
+                <a href="cv.pdf" target="_blank" class="btn-secondary">DOWNLOAD CV_</a>
+            </div>
+        </div>
+        <div class="hero-image-wrap">
+            <div class="hero-image-frame">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+                <img src="profile.jpeg" alt="Sakil Hasan Saikat" class="hero-profile-img">
+                <div class="image-scanline"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section reveal" id="about">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">01.</span>
+                <h2 class="section-title">ABOUT <span class="accent">ME</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm <span class="accent">Saikat</span>, a dedicated Cybersecurity Researcher and Ethical Hacker focused on offensive security, vulnerability management, and responsible disclosure.</p>
+                    <p>I've identified and reported vulnerabilities across <span class="accent">30+ organizations</span> worldwide, earning recognition from Microsoft, NASA, Google, Siemens, NVIDIA, UNICEF, WHO, the U.S. Department of Treasury, Apple, Oracle, and more.</p>
+                    <p>Owner of <span class="accent">CVE-2024-49054</span> — a critical Microsoft vulnerability. Intel Student Ambassador · Infosec BD Campus Ambassador.</p>
+                    <div class="about-info">
+                        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Khulna, Bangladesh 🇧🇩</span></div>
+                        <div class="info-row"><span class="info-label">Education</span><span class="info-val">CSE @ NUBTK</span></div>
+                        <div class="info-row"><span class="info-label">Focus</span><span class="info-val">Bug Bounty · Pen Testing · Research</span></div>
+                        <div class="info-row"><span class="info-label">Platform</span><span class="info-val">HackZar — <a href="https://hackzar.com" target="_blank" class="accent">hackzar.com</a></span></div>
+                    </div>
+                </div>
+                <div class="about-cve">
+                    <div class="cve-card">
+                        <div class="cve-label">CVE ASSIGNED</div>
+                        <div class="cve-id">CVE-2024-49054</div>
+                        <div class="cve-org">Microsoft Corporation</div>
+                        <div class="cve-desc">Critical vulnerability recognized by Microsoft Security Response Center</div>
+                        <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49054" target="_blank" class="cve-link">VIEW ON MSRC →</a>
+                    </div>
+                    <div class="cve-card">
+                        <div class="cve-label">SPECIAL BADGE</div>
+                        <div class="cve-id" style="font-size:1.1rem;">Google Dragon Badge</div>
+                        <div class="cve-org">Google Bug Hunters</div>
+                        <div class="cve-desc">Year of the Dragon 2024 recognition from Google Security</div>
+                        <a href="https://linkedin.com/in/0xSaikat" target="_blank" class="cve-link">VISIT MY LINKEDIN ACCOUNT FOR MORE →</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>    
-            
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-dark reveal" id="skills">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">02.</span>
+                <h2 class="section-title">SKILL<span class="accent">SET</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🔍</div>
+                    <h3>Vulnerability Research</h3>
+                    <p>Web app testing, API security, OWASP Top 10, CVE research, responsible disclosure</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Penetration Testing</h3>
+                    <p>Network pentesting, privilege escalation, enumeration, exploitation, reporting</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎪</div>
+                    <h3>Bug Bounty Hunting</h3>
+                    <p>HackerOne, Bugcrowd, private programs, XSS, SSRF, SQLi, IDOR, logic flaws</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Security Tools</h3>
+                    <p>Burp Suite, Nmap, Metasploit, Nuclei, Subfinder, FFUF, SQLmap, Wireshark</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Development</h3>
+                    <p>Python, Bash scripting, JavaScript, security automation, tool development</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🏗️</div>
+                    <h3>Projects</h3>
+                    <p>FindME, Penstaller, ShieldPlus, HackZar — open-source security tools &amp; platforms</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="terminal-container">
+    <!-- Projects Section -->
+    <section class="section reveal" id="projects">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">03.</span>
+                <h2 class="section-title">PRO<span class="accent">JECTS</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>FindME</h3>
+                    <p>FindME is a CLI tool for searching social media and online profiles linked to a username. It's ideal for reconnaissance, digital footprint verification, or checking username availability.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/0xSaikat/findme" target="_blank" class="project-link">GITHUB →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Penstaller</h3>
+                    <p>Penstaller: A Python tool to automate the installation of essential bug bounty and pentesting tools. With one command, it sets up tools for recon, fuzzing, and vulnerability scanning.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/0xSaikat/penstaller" target="_blank" class="project-link">GITHUB →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>NUBTK Semester Fee</h3>
+                    <p>This website is designed for the students of Northern University of Business and Technology Khulna to simplify payment tracking and make the process more efficient and user-friendly.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/0xSaikat/NUBTK-semester-fee" target="_blank" class="project-link">GITHUB →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Pluto AI</h3>
+                    <p>AI-Powered Code Security Analyzer. Pluto is a powerful CLI tool that uses AI to detect security vulnerabilities in your code.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/0xSaikat/pluto-ai" target="_blank" class="project-link">GITHUB →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Shield Plus</h3>
+                    <p>A Python tool to check password strength with color-coded feedback and emoji enhancements for better user experience.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/0xSaikat/shield-plus" target="_blank" class="project-link">GITHUB →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="terminal-info-bar">
-    help | about | projects | skills | hof | experience | contact | education | certifications | leadership | halloffame | CV | resume | support | sudo | donate | clear
+    <!-- Hall of Fame Section -->
+    <section class="section section-dark reveal" id="hof">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">04.</span>
+                <h2 class="section-title">HALL OF <span class="accent">FAME</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="hof-intro">Recognized by <span class="accent">30+ organizations</span> globally for responsible vulnerability disclosure.</p>
+            <div class="hof-categories">
+                <div class="hof-category">
+                    <h4>💻 TECH GIANTS</h4>
+                    <ul>
+                        <li><a href="https://msrc.microsoft.com" target="_blank">Microsoft MSRC</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://support.apple.com/en-us/102774" target="_blank">Apple Security</a> <span class="hof-year">2024, 2025</span></li>
+                        <li><a href="https://bughunters.google.com/profile/65b1339f-ee0b-4c08-8c66-f6e0e8390c24" target="_blank">Google Bug Hunters</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.oracle.com/security-alerts" target="_blank">Oracle Corporation</a> <span class="hof-year">2025</span></li>
+                        <li><a href="https://www.nvidia.com/en-us/security" target="_blank">NVIDIA Corporation</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://support.sap.com/en/my-support/knowledge-base/security-notes-news/credits-for-security-researchers.html" target="_blank">SAP SE</a> <span class="hof-year">2024</span></li>
+                    </ul>
+                </div>
+                <div class="hof-category">
+                    <h4>🏛️ GOVERNMENT &amp; INTL</h4>
+                    <ul>
+                        <li><a href="https://bugcrowd.com/nasa_vdp" target="_blank">NASA</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://bugcrowd.com/treasury_vdp" target="_blank">U.S. Dept. of Treasury</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.who.int/about/cybersecurity" target="_blank">World Health Organization</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.unesco.org/en/vulnerability-disclosure" target="_blank">UNESCO</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://cert.europa.eu/hall-of-fame" target="_blank">European Union CERT</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://bugcrowd.com/nationalscience" target="_blank">National Science Foundation</a> <span class="hof-year">2024</span></li>
+                    </ul>
+                </div>
+                <div class="hof-category">
+                    <h4>🎓 UNIVERSITIES</h4>
+                    <ul>
+                        <li><a href="https://hackerone.com/stanford-university" target="_blank">Stanford University</a> <span class="hof-year">2025</span></li>
+                        <li><a href="https://drexel.edu/it/security/services-processes/bug-bounty" target="_blank">Drexel University</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.uu.nl/en/organisation/information-and-technology-services-its/hall-of-fame-responsible-disclosure" target="_blank">Utrecht University</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.sheffield.ac.uk/it-services/security-vulnerability-disclosure" target="_blank">University of Sheffield</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://security.utexas.edu/hall-of-fame" target="_blank">UT Austin</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://security.utu.fi/acknowledgements.html" target="_blank">University of Turku</a> <span class="hof-year">2024</span></li>
+                    </ul>
+                </div>
+                <div class="hof-category">
+                    <h4>🏢 ENTERPRISE</h4>
+                    <ul>
+                        <li><a href="https://www.siemens.com/global/en/products/services/cert/hall-of-thanks.html" target="_blank">Siemens AG</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.adyen.com/policies-and-disclaimer/responsible-disclosure-hall-of-fame" target="_blank">Adyen N.V.</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://bugcrowd.com/unilever" target="_blank">Unilever PLC</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://bugcrowd.com/northwestern-mutual" target="_blank">Northwestern Mutual</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.linkedin.com/in/0xsaikat/details/honors" target="_blank">Zyxel Communications</a> <span class="hof-year">2024</span></li>
+                        <li><a href="https://www.prg.aero/hall-of-fame" target="_blank">Prague Airport</a> <span class="hof-year">2025</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hof-stats-row">
+                <div class="hof-stat"><span>30+</span>Organizations</div>
+                <div class="hof-stat"><span>1</span>CVE Assigned</div>
+                <div class="hof-stat"><span>15+</span>Countries</div>
+                <div class="hof-stat"><span>2025</span>Latest: Oracle</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section reveal" id="contact">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">05.</span>
+                <h2 class="section-title">CON<span class="accent">TACT</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-text">
+                    <p>Available for <span class="accent">security research</span>, bug bounty collaboration, consulting, and speaking engagements.</p>
+                    <div class="contact-links">
+                        <a href="mailto:contact@saikat.hackzar.com" class="contact-item">
+                            <span class="contact-icon">✉</span>
+                            <span>contact@saikat.hackzar.com</span>
+                        </a>
+                        <a href="https://twitter.com/0xSaikat" target="_blank" class="contact-item">
+                            <span class="contact-icon">𝕏</span>
+                            <span>@0xSaikat</span>
+                        </a>
+                        <a href="https://github.com/0xSaikat" target="_blank" class="contact-item">
+                            <span class="contact-icon">⌥</span>
+                            <span>github.com/0xSaikat</span>
+                        </a>
+                        <a href="https://hackzar.com" target="_blank" class="contact-item">
+                            <span class="contact-icon">⚡</span>
+                            <span>hackzar.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="support-card">
+                    <h4>SUPPORT RESEARCH_</h4>
+                    <p>Help fund open-source security tools and vulnerability research.</p>
+                    <div class="crypto-list">
+                        <div class="crypto-item" onclick="copyText('0xSaikat_BTC_ADDRESS', this)">
+                            <span class="crypto-label">BTC</span>
+                            <span class="crypto-addr">Click to reveal address</span>
+                        </div>
+                        <div class="crypto-item" onclick="copyText('0xSaikat_ETH_ADDRESS', this)">
+                            <span class="crypto-label">ETH</span>
+                            <span class="crypto-addr">Click to reveal address</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75rem;color:#888;margin-top:0.5rem;">Replace placeholder addresses above in script.js</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-inner">
+            <span class="footer-name glitch-text" data-text="0xSaikat">0xSaikat</span>
+            <span class="footer-copy">© 2025 Sakil Hasan Saikat · All rights reserved</span>
+            <div class="footer-quote" id="footerQuote">Hack the planet, secure the future 🔐</div>
+        </div>
+    </footer>
+
 </div>
 
-            <div class="terminal-content">
-    <div id="terminal-output">
-        <div class="command-line">
-            <span class="prompt">0xSaikat@hackbit:~$</span>
-            <span class="command">welcome</span>
+<!-- ========== TERMINAL VIEW ========== -->
+<div id="terminalView" class="view">
+
+    <div class="terminal-modal-wrap">
+
+        <div class="terminal-header">
+            <div class="header-left">
+                <h1 class="name">Sakil Hasan Saikat</h1>
+                <p class="title">Cybersecurity Researcher</p>
+            </div>
+            <button class="term-back-btn" onclick="toggleView()">✕ CLOSE</button>
         </div>
-        <div class="output">
 
-            <pre style="color: #ff0400cd; font-size: 0.8rem; line-height: 1;">
+        <div class="container">
+            <div class="left-panel">
+                <div class="profile-card">
+                    <div class="card-strap" id="cardStrap"></div>
+                    <div class="card-3d" id="card3d">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="profile.jpeg" alt="Profile Picture" class="profile-img">
+                                <div class="card-info">
+                                    <h3>Sakil Hasan Saikat</h3>
+                                    <div class="username">@0xSaikat</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-             ██████╗ ██╗  ██╗███████╗ █████╗ ██╗██╗  ██╗ █████╗ ████████╗
-            ██╔═████╗╚██╗██╔╝██╔════╝██╔══██╗██║██║ ██╔╝██╔══██╗╚══██╔══╝
-            ██║██╔██║ ╚███╔╝ ███████╗███████║██║█████╔╝ ███████║   ██║   
-            ████╔╝██║ ██╔██╗ ╚════██║██╔══██║██║██╔═██╗ ██╔══██║   ██║   
-            ╚██████╔╝██╔╝ ██╗███████║██║  ██║██║██║  ██╗██║  ██║   ██║   
-             ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
-              ░░░░░░  ░░   ░░░░░░░░░░░░░  ░░░░░░░  ░░░░░░░  ░░░   ░░   
+            <div class="terminal-container">
+                <div class="terminal-info-bar">
+                    help | about | projects | skills | hof | experience | contact | education | certifications | leadership | halloffame | CV | resume | support | sudo | donate | clear
+                </div>
+                <div class="terminal-content">
+                    <div id="terminal-output">
+                        <div class="command-line">
+                            <span class="prompt">0xSaikat@hackbit:~$</span>
+                            <span class="command">welcome</span>
+                        </div>
+                        <div class="output">
+                            <pre style="color: #ff0400cd; font-size: 0.8rem; line-height: 1;">
 
-             </pre>
-            Hello, I’m Sakil Hasan Saikat, a dedicated Cybersecurity Researcher and Security Analyst with a strong focus on offensive security, vulnerability management, and ethical hacking. Over the years, I’ve successfully identified and reported numerous security vulnerabilities, earning recognition in over 20 Halls of Fame, including Microsoft, NASA, Google, Siemens, NVIDIA, UNICEF, WHO, Dell Technologies, the U.S. Department of the Treasury, LinkedIn, and the National Science Foundation and more.
-            <br><br>
-            Welcome to my interactive 'AI powered' portfolio terminal!<br>
-            Type 'help' to see available commands.
+                 ██████╗ ██╗  ██╗███████╗ █████╗ ██╗██╗  ██╗ █████╗ ████████╗
+                ██╔═████╗╚██╗██╔╝██╔════╝██╔══██╗██║██║ ██╔╝██╔══██╗╚══██╔══╝
+                ██║██╔██║ ╚███╔╝ ███████╗███████║██║█████╔╝ ███████║   ██║   
+                ████╔╝██║ ██╔██╗ ╚════██║██╔══██║██║██╔═██╗ ██╔══██║   ██║   
+                ╚██████╔╝██╔╝ ██╗███████║██║  ██║██║██║  ██╗██║  ██║   ██║   
+                 ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
+                  ░░░░░░  ░░   ░░░░░░░░░░░░░  ░░░░░░░  ░░░░░░░  ░░░   ░░   
+
+                            </pre>
+                            Hello, I'm Sakil Hasan Saikat, a dedicated Cybersecurity Researcher and Security Analyst with a strong focus on offensive security, vulnerability management, and ethical hacking. Over the years, I've successfully identified and reported numerous security vulnerabilities, earning recognition in over 20 Halls of Fame, including Microsoft, NASA, Google, Siemens, NVIDIA, UNICEF, WHO, Dell Technologies, the U.S. Department of the Treasury, LinkedIn, and the National Science Foundation and more.
+                            <br><br>
+                            Welcome to my interactive 'AI powered' portfolio terminal!<br>
+                            Type 'help' to see available commands.
+                        </div>
+                    </div>
+                    <div class="input-line-fixed">
+                        <span class="prompt">0xSaikat@hackbit:~$</span>
+                        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+                        <span class="cursor-bar">█</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-footer">
+            <div class="card-indicator" id="motivationQuote"></div>
+            <span id="timestamp">Loading...</span>
         </div>
 
     </div>
 
-                <div class="input-line-fixed">
-    <span class="prompt">0xSaikat@hackbit:~$</span>
-    <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
-    <span class="cursor-bar">█</span>
 </div>
-</div>
-        
-        </div>
-        
-    </div>
 
-    <div class="terminal-footer">
-        <div class="card-indicator" id="motivationQuote">
-    
-</div>
-        
-                <span id="timestamp">7/20/2025, 3:48:42 PM</span>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
